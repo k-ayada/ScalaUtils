@@ -1,0 +1,2 @@
+# ScalaUtils
+Scala Utilities
