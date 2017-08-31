@@ -319,4 +319,18 @@ class StringUtils {
     wrapList.add(sb.toString)
     return wrapList;
   }
+  def getLongMemoryValueInBytes(str : String) : Long = {
+        if (null == str || str.isEmpty) {
+            0L
+        } else {
+            val txt = str.trim.toUpperCase
+            if (txt.contains("GB")) {
+                { txt.substring(0, txt.indexOf("GB")) }.toLong * 10737412742L
+            } else if (txt.contains("MB")) {
+                { txt.substring(0, txt.indexOf("MB")) }.toLong * 1048576L
+            } else if (txt.contains("KB")) {
+                { txt.substring(0, txt.indexOf("KB")) }.toLong * 1024L
+            } else { txt.substring(0, txt.indexOf("KB")) }.toLong
+        }
+    }
 }
